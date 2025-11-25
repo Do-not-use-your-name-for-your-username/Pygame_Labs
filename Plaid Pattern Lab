@@ -1,0 +1,82 @@
+import pygame
+pygame.init
+
+
+windowWidth = 500
+windowHeight = 500
+window = pygame.display.set_mode((windowWidth, windowHeight))
+clock = pygame.time.Clock()  # Will allow us to set framerate
+
+RED = (255,0,0)
+GREEN = (0,255,0)
+BLUE = (0,0,255)
+GRAY = (211,211,211)
+
+while True:
+    
+    ev = pygame.event.poll()    
+    if ev.type == pygame.QUIT:  
+        break                   
+    window.fill((255,255,255))
+
+
+#HORIZONTAL
+
+    for i in range(11):
+        pygame.draw.line(window, GRAY, (0,i*50), (500,i*50), 20)
+
+
+#VERTICAL
+
+
+    for i in range(11):
+        pygame.draw.line(window, RED, (i*50,0), (i*50,500), 20)
+
+
+
+    pygame.display.flip()
+    clock.tick(60) # Force frame rate to 60fps or lower
+
+
+pygame.quit()
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+This code here is unrelated to the plaid pattern, but I was experimenting around and found this cool pattern.
+
+    pygame.draw.line(window, RED, (0,0), (500,0), 20)
+    pygame.draw.line(window, RED, (0,50),(450,50),20)
+    pygame.draw.line(window, RED, (100,0), (400,100), 20)
+    pygame.draw.line(window, RED, (150,0), (350,150), 20)
+    pygame.draw.line(window, RED, (200,0), (300,200), 20)
+    pygame.draw.line(window, RED, (250,0), (250,250), 20)
+    pygame.draw.line(window, RED, (300,0),(200,300),20)
+    pygame.draw.line(window, RED, (350,0), (150,350), 20)
+    pygame.draw.line(window, RED, (400,0), (100,400), 20)
+    pygame.draw.line(window, RED, (450,0), (50,450), 20)
+    pygame.draw.line(window, RED, (500,0), (0,500), 20)
+'''
