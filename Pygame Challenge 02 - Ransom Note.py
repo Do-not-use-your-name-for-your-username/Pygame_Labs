@@ -42,4 +42,13 @@
 # Good luck!
 #-----------------------------------------------------------------------------
 
+import pygame
+pygame.init 
+
+pygame.font.init()
+
+pygame.font.Font("Milk/Cake.otf", 32)
+pygame.font.Font("DarlingGirlDemoRegular.ttf", 32)
+pygame.font.Font("Game/Of/Squids.ttf", 32)
+pygame.font.Font("Snowy/Delight.otf", 32)
 
