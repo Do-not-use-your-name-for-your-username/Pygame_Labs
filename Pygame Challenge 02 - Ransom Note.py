@@ -46,9 +46,37 @@ import pygame
 pygame.init 
 
 pygame.font.init()
+    
+ 
+windowWidth = 500
+windowHeight = 500
+window = pygame.display.set_mode((windowWidth, windowHeight))
+clock = pygame.time.Clock()
 
-pygame.font.Font("Milk/Cake.otf", 32)
-pygame.font.Font("DarlingGirlDemoRegular.ttf", 32)
-pygame.font.Font("Game/Of/Squids.ttf", 32)
-pygame.font.Font("Snowy/Delight.otf", 32)
 
+while True:
+    
+    ev = pygame.event.poll()    
+    if ev.type == pygame.QUIT:  
+        break     
+window.fill((255,255,255))
+
+transparent_surface = pygame.Surface(window.get_size(), pygame.SRCALPHA)
+
+font1 = pygame.font.Font("Milk Cake.otf", 32)
+font2 = pygame.font.Font("DarlingGirlDemoRegular.ttf", 32)
+font3 = pygame.font.Font("Game Of Squids.ttf", 32)
+font4 = pygame.font.Font("Snowy Delight.otf", 32)
+
+text_surface = font1.render('Hello', True, (255,0,0))
+
+text_rect = text_surface.get_rect(center=(250,250))
+
+window.blit(text_surface, (250,250))
+window.blit(transparent_surface,(0,0))
+
+pygame.display.flip()
+clock.tick(60) # Force frame rate to 60fps or lower
+
+
+pygame.quit()
