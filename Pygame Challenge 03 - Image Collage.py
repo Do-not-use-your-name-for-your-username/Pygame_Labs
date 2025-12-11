@@ -30,4 +30,32 @@
 # Good luck!
 #-----------------------------------------------------------------------------
 
+import pygame
+pygame.init
 
+windowWidth = 1280
+windowHeight = 720
+window = pygame.display.set_mode((windowWidth, windowHeight))
+
+window.fill((0,0,0))
+
+earth = pygame.image.load("earth-resized.png")
+window.blit(earth,(800,200))
+
+teto = pygame.image.load("kasane-teto.png")
+window.blit(teto,(100,100))
+
+weight = pygame.image.load("teto-heavy.png")
+window.blit(weight,(300,300))
+
+running = True
+while running:
+
+    ev = pygame.event.poll()   
+    for event in pygame.event.get(): 
+        if ev.type == pygame.QUIT:  
+            running = False     
+
+    pygame.display.flip()
+ 
+pygame.quit()
