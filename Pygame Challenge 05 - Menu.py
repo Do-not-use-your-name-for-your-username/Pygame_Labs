@@ -46,4 +46,48 @@
 # Good luck!
 #-----------------------------------------------------------------------------
 
+import pygame
+pygame.init
+
+windowWidth = 1280
+windowHeight = 719
+speed = 5
+
+clock = pygame.time.Clock()
+window = pygame.display.set_mode((windowWidth, windowHeight))
+font1 = pygame.font.Font("Milk Cake.otf", 48)
+text_surface1 = font1.render('MENU', True, (255,0,0))
+window.blit(text_surface1, (100,200))
+background = pygame.image.load("menuscreen.png")
+
+gamestate = "menu"
+mousePressed = False
+
+while True:
+    
+    ev = pygame.event.poll()    
+    mouseX, mouseY = pygame.mouse.get_pos() #gets position of mouse
+    
+    if ev.type == pygame.QUIT:  
+        break        
+    if ev.type == pygame.MOUSEBUTTONUP:
+        mousePressed = True
+    else: 
+        mousePressed = False
+
+    if gamestate == "menu":
+
+        if mousePressed == True:
+
+            if mouseX > 100 and mouseX < 300 and mouseY > 100 and mouseY < 300:
+                gamestate = "instructions"
+                print(gamestate)
+            if mouseX > 100 and mouseX < 300 and mouseY > 400 and mouseY < 600:
+                gamestate = "play"
+                print(gamestate)
+
+            pygame.display.flip()
+            clock.tick(60)
+    
+pygame.quit()
 
