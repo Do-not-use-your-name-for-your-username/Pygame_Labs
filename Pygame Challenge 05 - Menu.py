@@ -63,6 +63,11 @@ background = pygame.image.load("menuscreen.png")
 gamestate = "menu"
 mousePressed = False
 
+button = pygame.Rect(630,360,100,200)
+button2 = pygame.Rect(630,590,100,200)
+button3 = pygame.Rect(930,590,100,200)
+
+
 while True:
     
     ev = pygame.event.poll()    
@@ -70,7 +75,7 @@ while True:
     
     if ev.type == pygame.QUIT:  
         break        
-    if ev.type == pygame.MOUSEBUTTONUP:
+    if ev.type == pygame.MOUSEBUTTONDOWN:
         mousePressed = True
     else: 
         mousePressed = False
@@ -79,13 +84,16 @@ while True:
 
         if mousePressed == True:
 
-            if mouseX > 100 and mouseX < 300 and mouseY > 100 and mouseY < 300:
+            if button.collidepoint:
                 gamestate = "instructions"
                 print(gamestate)
-            if mouseX > 100 and mouseX < 300 and mouseY > 400 and mouseY < 600:
+            if button2.collidepoint:
                 gamestate = "play"
                 print(gamestate)
-
+            if button2.collidepoint:
+                gamestate = "exit"
+                print(gamestate)
+            
             pygame.display.flip()
             clock.tick(60)
     
