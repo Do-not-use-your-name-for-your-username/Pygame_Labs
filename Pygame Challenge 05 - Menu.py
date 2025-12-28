@@ -49,6 +49,8 @@
 import pygame
 pygame.init
 
+pygame.font.init()
+
 windowWidth = 1280
 windowHeight = 719
 speed = 5
