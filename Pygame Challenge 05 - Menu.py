@@ -58,8 +58,7 @@ speed = 5
 clock = pygame.time.Clock()
 window = pygame.display.set_mode((windowWidth, windowHeight))
 font1 = pygame.font.Font("Milk Cake.otf", 48)
-text_surface1 = font1.render('MENU', True, (255,0,0))
-window.blit(text_surface1, (100,200))
+
 background = pygame.image.load("menuscreen.png")
 
 gamestate = "menu"
@@ -75,6 +74,10 @@ while True:
     ev = pygame.event.poll()    
     mouseX, mouseY = pygame.mouse.get_pos() #gets position of mouse
     
+    text_surface1 = font1.render('MENU', True, (255,0,0))
+    window.blit(text_surface1, (100,200)) 
+    menu_rect = text_surface1.get_rect(100,200)
+
     if ev.type == pygame.QUIT:  
         break        
     if ev.type == pygame.MOUSEBUTTONDOWN:
@@ -83,6 +86,14 @@ while True:
         mousePressed = False
 
     if gamestate == "menu":
+
+        text_surface2 = font1.render('play', True, (255,0,0))
+        window.blit(text_surface1, (500,200)) 
+        menu_rect = text_surface1.get_rect(500,200)
+
+        text_surface2 = font1.render('instructions', True, (255,0,0))
+        window.blit(text_surface1, (500,500)) 
+        menu_rect = text_surface1.get_rect(500,500)
 
         if mousePressed == True:
 
